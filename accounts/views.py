@@ -9,7 +9,7 @@ class AccountRegistration(CreateView):
     template_name = "accounts/registration.html"
     form_class = UserCreationForm
     model = User
-    success_url = reverse_lazy("accounts:register_success")
+    success_url = reverse_lazy("accounts:register-success")
 
 
 class AccountRegistrationSuccess(TemplateView):
