@@ -1,0 +1,22 @@
+{% load products core %}
+<nav>
+    <ul class="pagination">
+        <li class="page-item {% if not page.has_previous %}disabled{% endif %}">
+            <a class="page-link" href="{% if page.has_previous %}?{% url_replace page=page.previous_page_number %}{% endif %}">
+                <i class="fa fa-chevron-left"></i> Previous
+            </a>
+        </li>
+
+        {% for page_number in page.paginator.page_range %}
+            <li class="page-item {% if page_number == page.number %}active{% endif %}">
+                <a class="page-link" href="?{% url_replace page=page_number %}">{{ page_number }}</a>
+            </li>
+        {% endfor %}
+
+        <li class="page-item {% if not page.has_next %}disabled{% endif %}">
+            <a class="page-link" href="{% if page.has_next %}?{% url_replace page=page.next_page_number %}{% endif %}">
+                Next <i class="fa fa-chevron-right"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

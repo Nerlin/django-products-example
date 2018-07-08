@@ -1,0 +1,4 @@
+{% load core %}
+
+<button type="submit" class="btn btn-primary">{{ submit_text|default:"Submit"|safe }}</button>
+<a class="btn btn-secondary" href="{% referer cancel_url %}">{{ cancel_text|default:"Cancel"|safe }}</a>

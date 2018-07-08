@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% load products core %}
+
+{% block content %}
+    <h1>{{ product.name }}</h1>
+
+    <div class="btn-group">
+        <a class="btn btn-secondary" href="{% url 'products:list' %}">
+            <i class="fa fa-list"></i> List
+        </a>
+
+        {% if perms.products.change_product %}
+            <a class="btn btn-primary" href="{% url_referred 'products:edit' product.pk %}">
+                <i class="fa fa-pencil-alt"></i> Edit
+            </a>
+        {% endif %}
+
+        {% if perms.products.delete_product %}
+            <a class="btn btn-danger" href="{% url_referred 'products:delete' product.pk %}">
+                <i class="fa fa-trash"></i> Delete
+            </a>
+        {% endif %}
+    </div>
+
+    <p class="mt-5 mb-1">
+        <b>Price</b>: {{ product.price|format_price }}
+    </p>
+
+    <p class="text-justify my-1">
+        {{ product.description|default:"No description yet." }}
+    </p>
+{% endblock %}

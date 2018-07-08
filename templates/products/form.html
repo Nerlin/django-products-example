@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% load widget_tweaks core %}
+
+{% block content %}
+    <h1>{% if product %}{{ product.name }}{% else %}Create product{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {% include "form_inputs.html" %}
+        {% include "form_submit.html" with cancel_url="products:list" %}
+    </form>
+{% endblock %}

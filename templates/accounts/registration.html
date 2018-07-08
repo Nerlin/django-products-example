@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% load core %}
+
+{% block content %}
+    <h1>Registration</h1>
+
+    <form class="mt-5" method="post">
+        {% csrf_token %}
+        {% include "form_inputs.html" %}
+        {% include "form_submit.html" with submit_text="Register" cancel_url="/" %}
+    </form>
+{% endblock %}

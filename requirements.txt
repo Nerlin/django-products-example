@@ -1,0 +1,4 @@
+Django==2.0.7
+django-filter==1.1.0
+django-widget-tweaks==1.4.2
+pytz==2018.5

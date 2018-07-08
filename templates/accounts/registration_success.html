@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Registration success!</h1>
+
+    <p class="mt-1">
+        Thank you for your registration! Now you can <a href="{% url 'accounts:login' %}">log in</a>.
+    </p>
+{% endblock %}

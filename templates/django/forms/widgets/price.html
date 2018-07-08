@@ -1,0 +1,7 @@
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+    </div>
+
+    <input name="{{ widget.name }}" type="number" class="form-control" step="0.01" value="{{ widget.value|default_if_none:"" }}"{% include "django/forms/widgets/attrs.html" %}>
+</div>
