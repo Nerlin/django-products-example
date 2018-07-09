@@ -22,7 +22,7 @@ class ProductUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = "products.change_product"
 
 
-class ProductDelete(DeleteView):
+class ProductDelete(PermissionRequiredMixin, DeleteView):
     template_name = "products/delete.html"
     model = Product
     success_url = reverse_lazy("products:list")
